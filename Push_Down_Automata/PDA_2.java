@@ -3,7 +3,7 @@
 
 import java.util.Stack;
 import java.util.Scanner;
-public class Auto_2 {
+public class PDA_2 {
 
     public static void main(String[] args){
         Stack<Character> s = new Stack<Character>();
