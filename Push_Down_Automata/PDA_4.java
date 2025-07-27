@@ -1,36 +1,34 @@
-// L = (a^2n b^n | n >= 1}
+// L = {a^n b^2n | n >= 0}
 
 import java.util.Scanner;
 import java.util.Stack;
 
-public class PDA_3 {
+public class PDA_4 {
     public static void main(String[] args) {
         Stack<Character> s = new Stack<Character>();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the String!!!!");
         String a = sc.nextLine();
         int count = a.length();
-        int i = 0;
-        while (i < count){
+        for (int i = 0; i < count; i++){
             switch (a.charAt(i)){
                 case 'a':
-                    if (a.charAt(i+=1) == 'a'){
-                        s.push('X');
-                    }
-                    else {
-                        System.out.println("One a is missing");
-                        return;
-                    }
+                    s.push('X');
                     break;
                 case 'b':
-                    s.pop();
+                    if (a.charAt(i+=1) == 'b'){
+                        s.pop();
+                    }
+                    else {
+                        System.out.println("One b is missing");
+                        return;
+                    }
                     break;
                 default:
                     System.out.println("Invalid character in the string. Only 'a' and 'b' are allowed.");
                     return;
             }
             System.out.println(s);
-            i++;
         }
         if (s.isEmpty()) {
             System.out.println("Valid String");
