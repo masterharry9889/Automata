@@ -1,9 +1,9 @@
-// L = {a^2n b^n | n >= 1}
+// L = {a^m b^n || m>=n}
 
 import java.util.Scanner;
 import java.util.Stack;
 
-public class PDA_3 {
+public class PDA_5 {
     public static void main(String[] args) {
         Stack<Character> s = new Stack<Character>();
         Scanner sc = new Scanner(System.in);
@@ -14,13 +14,7 @@ public class PDA_3 {
         while (i < count){
             switch (a.charAt(i)){
                 case 'a':
-                    if (a.charAt(i+=1) == 'a'){
-                        s.push('X');
-                    }
-                    else {
-                        System.out.println("One a is missing");
-                        return;
-                    }
+                    s.push('X');
                     break;
                 case 'b':
                     s.pop();
@@ -32,7 +26,7 @@ public class PDA_3 {
             System.out.println(s);
             i++;
         }
-        if (s.isEmpty()) {
+        if (s.isEmpty() || s.peek() == 'X') {
             System.out.println("Valid String");
         }
         else {
